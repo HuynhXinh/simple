@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:stateListAnimator="@null">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/title"
+        android:textSize="@dimen/text_size_h1"
+        android:textStyle="bold"
+        tools:text="Oops" />
+
+    <TextView
+        android:id="@+id/tvMsg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:gravity="center"
+        android:textColor="@color/message"
+        android:textSize="@dimen/text_size_h2"
+        tools:text="This is a simple message dialog" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tvMsg"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNegative"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/padding_16dp"
+            android:textColor="@color/button"
+            android:textSize="@dimen/text_size_h1"
+            android:visibility="gone"
+            tools:text="Cancel"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/divider"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvPositive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/padding_16dp"
+            android:textColor="@color/button"
+            android:textSize="@dimen/text_size_h1"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="OK"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+</RelativeLayout>

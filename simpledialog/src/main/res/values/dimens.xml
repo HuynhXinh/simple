@@ -1,0 +1,15 @@
+<resources>
+
+    <dimen name="text_size_hero">20sp</dimen>
+    <dimen name="text_size_h1">16sp</dimen>
+    <dimen name="text_size_h2">14sp</dimen>
+    <dimen name="text_size_h3">12sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_body">10sp</dimen>
+    <dimen name="text_size_paragraph">8sp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+
+</resources>
