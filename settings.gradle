@@ -1,3 +1,5 @@
+include ':securitysp'
 rootProject.name='SimpleDialog'
 include ':app'
 include ':simpledialog'
+include ':simplebiometric'

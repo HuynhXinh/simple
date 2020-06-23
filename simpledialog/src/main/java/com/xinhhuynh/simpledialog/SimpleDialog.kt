@@ -14,7 +14,6 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 
-
 class SimpleDialogStyles(
     var typeface: Typeface? = null,
     var title: Style = Style(size = 16.toSp(), color = Color.BLACK, bold = true, isAllCaps = true),
@@ -166,10 +165,4 @@ private fun View.show() {
 
 private fun View.showOrGone(show: Boolean) {
     this.visibility = if (show) View.VISIBLE else View.GONE
-}
-
-private fun CharSequence?.isNotNullOrBlank(): Boolean {
-    this ?: return false
-
-    return !this.isNullOrBlank()
 }
