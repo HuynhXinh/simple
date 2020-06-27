@@ -66,7 +66,7 @@ class KeyStoreManager(
                     key = keyStore.getKey(alias, null)
                 },
                 onLeesThanM = {
-                    key = com.xinhhuynh.securitysp.SecretKeyCreatorV18(
+                    key = SecretKeyCreatorV18(
                         context = context,
                         privateKeyEntry = getPrivateKey()
                     ).getKey()

@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 /.idea/
+
+bintray.gradle
+install.gradle
+push.gradle
+push_config.gradle

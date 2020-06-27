@@ -1,25 +1,8 @@
-//apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-//publish {
-//
-//    def groupProjectID = 'com.xinhhuynh.simple'
-//    def artifactProjectID = 'SimpleDialog'
-//    def publishVersionID = '1.0.0'
-//
-//    userOrg = 'huynhxinh'
-//    repoName = 'Simple'
-//
-//    groupId = groupProjectID
-//    artifactId = artifactProjectID
-//    publishVersion = publishVersionID
-//
-//    desc = 'Simple dialog with kotlin'
-//    website = 'https://github.com/HuynhXinh/simple'
-//
-//}
+//apply from: 'push.gradle'
 
 android {
     compileSdkVersion 29
