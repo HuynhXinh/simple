@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.xinhhuynh.securitysp.SecuritySharePreference
 import com.xinhhuynh.simplebiometric.SimpleBiometric
-import com.xinhhuynh.simplebiometric.SimpleBiometricUtil
+import com.xinhhuynh.simplebiometric.simpleCheck
 import kotlinx.android.synthetic.main.activity_fingerprint.*
 
 class SampleFingerprintActivity : AppCompatActivity() {
@@ -34,7 +34,7 @@ class SampleFingerprintActivity : AppCompatActivity() {
 
         }
 
-        SimpleBiometricUtil.simpleCheck(this) { isAvailable ->
+        simpleCheck { isAvailable ->
 
             if (isAvailable && isLogIn()) {
                 btnBiometric.visibility = View.VISIBLE
