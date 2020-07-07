@@ -1,7 +1,7 @@
 
 
 ## Simple Dialog
-<p align="center">
+<p>
   <img src="screens/dialog_1_button.png" width="200">
   <img src="screens/dialog_2_button.png" width="200">
   <img src="screens/dialog_custom.png" width="200">
