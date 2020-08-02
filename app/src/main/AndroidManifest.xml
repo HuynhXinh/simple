@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.xinhhuynh.sample">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,6 +32,10 @@
         <activity
             android:name="com.xinhhuynh.sample.SampleFingerprintActivity"
             android:label="Sample Fingerprint" />
+
+        <activity
+            android:name="com.xinhhuynh.sample.SamplePermissionActivity"
+            android:label="Sample Permission" />
 
     </application>
 
