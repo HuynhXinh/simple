@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -42,7 +43,13 @@ class SimpleDialog(
     private val styles: SimpleDialogStyles = SimpleDialogStyles()
 ) {
 
-    val dialog = Dialog(context)
+    val dialog = Dialog(context, getTheme(context))
+
+    private fun getTheme(context: Context): Int {
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(R.attr.alertDialogTheme, outValue, true)
+        return outValue.resourceId
+    }
 
     init {
         dialog.apply {

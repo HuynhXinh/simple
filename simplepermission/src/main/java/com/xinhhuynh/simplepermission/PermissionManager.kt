@@ -2,7 +2,6 @@ package com.xinhhuynh.simplepermission
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -150,11 +149,6 @@ class PermissionManager {
 
     fun onActivityResult(context: Context, requestCode: Int, resultCode: Int) {
         if (requestCode != SETTING_PERMISSION_REQUEST_CODE) return
-
-        if (resultCode != Activity.RESULT_OK) {
-            onPermissionDeny?.invoke()
-            return
-        }
 
         if (isAnyPermission && permissions?.any { context.isGranted(it) } == true) {
             onPermissionGranted?.invoke()
