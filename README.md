@@ -22,5 +22,11 @@ File store preference will look like this
 ```
 
 ## Simple Permission
+<p>
+  <img src="screens/permission_deny_do_not_ask_again.png" width="200">
+  <img src="screens/permission_default_dialog_ask_again.png" width="200">
+  <img src="screens/permission_custom_dialog_ask_agian.png" width="200">
+</p>
+
 ## Simple Detect Current Location
 ## Simple Tag App Type

@@ -2,7 +2,6 @@ package com.xinhhuynh.sample
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.xinhhuynh.securitysp.SecuritySharePreference
 import com.xinhhuynh.simplebiometric.SimpleBiometric
@@ -56,10 +55,10 @@ class SampleFingerprintActivity : AppCompatActivity() {
                             fakeLogin(email, password)
                         },
                         onFail = {
-                            "Authentication fail".toast()
+                            toast("Authentication fail")
                         },
                         onCancel = {
-                            "Authentication cancel: $it".toast()
+                            toast("Authentication cancel: $it")
                         }).show()
                 }
             } else {
@@ -79,9 +78,5 @@ class SampleFingerprintActivity : AppCompatActivity() {
 
     private fun isLogIn(): Boolean {
         return pre.contains("email") and pre.contains("password")
-    }
-
-    private fun String.toast() {
-        Toast.makeText(this@SampleFingerprintActivity, this, Toast.LENGTH_LONG).show()
     }
 }

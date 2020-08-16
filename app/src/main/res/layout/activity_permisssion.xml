@@ -9,32 +9,43 @@
     tools:context="com.xinhhuynh.sample.MainActivity">
 
     <Button
-        android:id="@+id/btnSampleDialog"
+        android:id="@+id/btnCheckAny"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sample Dialog"
+        android:text="Check any"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSampleBiometric"
+        android:id="@+id/btnCheckAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Sample Biometric"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="Check all"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnPermission"
+        android:id="@+id/btnAskAgain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Sample Permission"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="Check all and ask again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCustomAskAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="Check custom ask again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

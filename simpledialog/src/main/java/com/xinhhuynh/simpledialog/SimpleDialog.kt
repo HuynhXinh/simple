@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -42,7 +43,13 @@ class SimpleDialog(
     private val styles: SimpleDialogStyles = SimpleDialogStyles()
 ) {
 
-    private var dialog = Dialog(context)
+    val dialog = Dialog(context, getTheme(context))
+
+    private fun getTheme(context: Context): Int {
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(R.attr.alertDialogTheme, outValue, true)
+        return outValue.resourceId
+    }
 
     init {
         dialog.apply {
@@ -85,7 +92,7 @@ class SimpleDialog(
                     text = it.invoke()
                     show()
                     setOnClickListener {
-                        dismiss()
+                        cancel()
                         onClickNegativeButton?.invoke()
                     }
                 }
@@ -114,10 +121,18 @@ class SimpleDialog(
         val buttonWidth = (Resources.getSystem().displayMetrics.widthPixels * 0.12).toInt()
 
         return getWidthOf(textPositive?.invoke(), styles.typeface, styles.btnPositive) >= buttonWidth ||
-                getWidthOf(textNegative?.invoke(), styles.typeface, styles.btnNegative) >= buttonWidth
+                getWidthOf(
+                    textNegative?.invoke(),
+                    styles.typeface,
+                    styles.btnNegative
+                ) >= buttonWidth
     }
 
-    private fun getWidthOf(text: CharSequence?, _typeface: Typeface?, _style: SimpleDialogStyles.Style): Int {
+    private fun getWidthOf(
+        text: CharSequence?,
+        _typeface: Typeface?,
+        _style: SimpleDialogStyles.Style
+    ): Int {
         text ?: return 0
 
         val result = Rect()

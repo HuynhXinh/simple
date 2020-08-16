@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog"
-    android:stateListAnimator="@null">
+    android:layout_marginStart="@dimen/margin_16dp"
+    android:layout_marginEnd="@dimen/margin_16dp"
+    android:background="@drawable/bg_dialog">
 
     <TextView
         android:id="@+id/tvTitle"

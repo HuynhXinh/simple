@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.xinhhuynh.sample">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,6 +39,10 @@
         <activity
             android:name="com.xinhhuynh.sample.SampleFingerprintActivity"
             android:label="Sample Fingerprint" />
+
+        <activity
+            android:name="com.xinhhuynh.sample.SamplePermissionActivity"
+            android:label="Sample Permission" />
 
     </application>
 
