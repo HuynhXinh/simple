@@ -32,5 +32,5 @@ fun <C : AppCompatActivity> AppCompatActivity.start(clazz: Class<C>) {
 }
 
 fun Context.toast(str: String) {
-    Toast.makeText(this, str, Toast.LENGTH_LONG).show()
+    Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
 }

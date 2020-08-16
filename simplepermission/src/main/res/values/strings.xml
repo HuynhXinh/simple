@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sp_title_permission_deny">Permission denied</string>
+    <string name="sp_title_permission_msg">You need to allow permission to use this feature</string>
+    <string name="sp_title_permission_ok">OK</string>
+</resources>

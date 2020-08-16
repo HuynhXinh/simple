@@ -42,7 +42,7 @@ class SimpleDialog(
     private val styles: SimpleDialogStyles = SimpleDialogStyles()
 ) {
 
-    private var dialog = Dialog(context)
+    val dialog = Dialog(context)
 
     init {
         dialog.apply {
@@ -85,7 +85,7 @@ class SimpleDialog(
                     text = it.invoke()
                     show()
                     setOnClickListener {
-                        dismiss()
+                        cancel()
                         onClickNegativeButton?.invoke()
                     }
                 }
@@ -114,10 +114,18 @@ class SimpleDialog(
         val buttonWidth = (Resources.getSystem().displayMetrics.widthPixels * 0.12).toInt()
 
         return getWidthOf(textPositive?.invoke(), styles.typeface, styles.btnPositive) >= buttonWidth ||
-                getWidthOf(textNegative?.invoke(), styles.typeface, styles.btnNegative) >= buttonWidth
+                getWidthOf(
+                    textNegative?.invoke(),
+                    styles.typeface,
+                    styles.btnNegative
+                ) >= buttonWidth
     }
 
-    private fun getWidthOf(text: CharSequence?, _typeface: Typeface?, _style: SimpleDialogStyles.Style): Int {
+    private fun getWidthOf(
+        text: CharSequence?,
+        _typeface: Typeface?,
+        _style: SimpleDialogStyles.Style
+    ): Int {
         text ?: return 0
 
         val result = Rect()

@@ -1,25 +1,41 @@
 package com.xinhhuynh.simplepermission
 
 import android.app.Activity
+import android.app.Dialog
+import android.content.Context
 
 class SimplePermission {
 
     companion object {
-        val request = SimplePermissionRequest()
+        var request: SimplePermissionRequest? = null
+    }
+
+    private fun getRequest(): SimplePermissionRequest {
+        if (request == null) {
+            request = SimplePermissionRequest()
+        }
+
+        return request!!
+    }
+
+    fun anyPermissions(vararg permissions: String): SimplePermission {
+        getRequest().isAnyPermission = true
+        getRequest().permissions = permissions
+        return this
     }
 
     fun permissions(vararg permissions: String): SimplePermission {
-        request.permissions = permissions
+        getRequest().permissions = permissions
         return this
     }
 
     fun askAgain(
         askAgain: (() -> Boolean) = { true },
-        onShowAskAgain: (() -> Unit)? = null
+        onShowAskAgain: ((Activity) -> Dialog)? = null
     ): SimplePermission {
 
-        request.askAgain = askAgain
-        request.onShowAskAgain = onShowAskAgain
+        getRequest().askAgain = askAgain
+        getRequest().onShowAskAgain = onShowAskAgain
 
         return this
     }
@@ -29,8 +45,8 @@ class SimplePermission {
         onPermissionDeny: (() -> Unit)? = null
     ): SimplePermission {
 
-        request.onPermissionGranted = onPermissionGranted
-        request.onPermissionDeny = onPermissionDeny
+        getRequest().onPermissionGranted = onPermissionGranted
+        getRequest().onPermissionDeny = onPermissionDeny
 
         return this
     }

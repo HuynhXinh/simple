@@ -1,9 +1,10 @@
 package com.xinhhuynh.simplepermission
 
-import android.Manifest
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class PermissionActivity : AppCompatActivity() {
@@ -23,21 +24,39 @@ class PermissionActivity : AppCompatActivity() {
         val request = SimplePermission.request
 
         permissionManager = PermissionManager().apply {
-            permissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
+
+            val permissions = request?.permissions ?: emptyArray()
+
+            if (request?.isAnyPermission == true) {
+                anyPermissions(*permissions)
+            } else {
+                permissions(*permissions)
+            }
 
             askAgain(
-                askAgain = request.askAgain,
-                onShowAskAgain = request.onShowAskAgain
+                askAgain = request?.askAgain ?: { false },
+                onShowAskAgain = {
+                    request?.onShowAskAgain?.invoke(this@PermissionActivity)?.apply {
+                        show()
+
+                        setOnCancelListener {
+                            request.onPermissionDeny?.invoke()
+
+                            finish()
+                        }
+                    } ?: showDefaultDialogAskAgain(request?.onPermissionDeny)
+                }
+
             )
 
             callback(
                 onPermissionGranted = {
-                    request.onPermissionGranted?.invoke()
+                    request?.onPermissionGranted?.invoke()
 
                     finish()
                 },
                 onPermissionDeny = {
-                    request.onPermissionDeny?.invoke()
+                    request?.onPermissionDeny?.invoke()
 
                     finish()
                 }
@@ -45,6 +64,21 @@ class PermissionActivity : AppCompatActivity() {
 
             request(this@PermissionActivity)
         }
+    }
+
+    private fun showDefaultDialogAskAgain(onPermissionDeny: (() -> Unit)? = null) {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.sp_title_permission_deny))
+            .setMessage(getString(R.string.sp_title_permission_msg))
+            .setPositiveButton(getString(R.string.sp_title_permission_ok)) { _: DialogInterface, _: Int ->
+                openPermissionSetting()
+            }
+            .setOnCancelListener {
+                onPermissionDeny?.invoke()
+                finish()
+            }
+            .create()
+            .show()
     }
 
     override fun onRequestPermissionsResult(
@@ -59,14 +93,13 @@ class PermissionActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        permissionManager?.onActivityResult(this, requestCode, resultCode, data)
-
-        finish()
+        permissionManager?.onActivityResult(this, requestCode, resultCode)
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
         permissionManager = null
+        SimplePermission.request = null
     }
 }

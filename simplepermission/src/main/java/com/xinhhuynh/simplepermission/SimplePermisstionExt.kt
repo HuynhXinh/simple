@@ -30,5 +30,5 @@ fun Activity.openPermissionSetting() {
 fun Activity.isDeniedForever(permissions: Array<out String>): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return false
 
-    return permissions.any { ActivityCompat.shouldShowRequestPermissionRationale(this, it) }
+    return permissions.any { !ActivityCompat.shouldShowRequestPermissionRationale(this, it) }
 }
