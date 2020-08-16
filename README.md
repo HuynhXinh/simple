@@ -22,6 +22,7 @@ File store preference will look like this
 ```
 
 ## Simple Permission
+How to use: https://github.com/HuynhXinh/simple/blob/master/app/src/main/java/com/xinhhuynh/sample/SamplePermissionActivity.kt
 <p>
   <img src="screens/permission_deny_do_not_ask_again.png" width="200">
   <img src="screens/permission_default_dialog_ask_again.png" width="200">
